@@ -1,4 +1,4 @@
-![Hero Image](public/images/hero-image/hero-image-two.png)
+![Hero Image](public/images/hero-image.png)
 
 ### Hello! 👋 I'm Roby, a Full-Stack Developer from Italy.
 
