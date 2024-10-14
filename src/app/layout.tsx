@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ThemeContextProvider from "@/context/theme-context";
 
 export const metadata: Metadata = {
   title: "Robert Kovacs Portfolio",
@@ -14,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased dark:bg-black`}>{children}</body>
+      <body className={`antialiased dark:bg-black`}>
+        <ThemeContextProvider>{children}</ThemeContextProvider>
+      </body>
     </html>
   );
 }
