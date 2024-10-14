@@ -1,6 +1,6 @@
 "use client;";
 
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 type ThemeType = "light" | "dark";
 
@@ -25,13 +25,25 @@ const ThemeContextProvider = ({ children }: ThemeContextProviderType) => {
   return (
     <ThemeContext.Provider
       value={{
-        theme: "light",
+        theme: theme,
         switchTheme: switchTheme,
       }}
     >
       {children}
     </ThemeContext.Provider>
   );
+};
+
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+
+  if (context === null) {
+    throw new Error(
+      "useTheme must be used from within a ThemeContextProvider."
+    );
+  }
+
+  return context;
 };
 
 export default ThemeContextProvider;
